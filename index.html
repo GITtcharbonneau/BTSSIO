@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 
+<link rel="stylesheet" type="text/css" href="style.css">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,31 +74,30 @@
 		}
 		// Récupère le modèle
 		const divExistante = document.getElementById('model-case'); // Remplacer 'model-case' par l'ID de votre div existante
-		// Crée une div pour chaque étudiant et l'ajoute au DOM avec une couleur de fond aléatoire
-		etudiants.forEach((etudiant, index) => {
-			// Crée une copie de la div existante
-			const nouvelleDiv = divExistante.cloneNode(true);
+    // Crée une div pour chaque étudiant et l'ajoute au DOM avec une couleur de fond aléatoire
+    etudiants.forEach((etudiant, index) => {
+        // Crée une copie de la div existante
+        const nouvelleDiv = divExistante.cloneNode(true);
 
-			// Modifie le contenu de la nouvelle div avec le nom de l'étudiant
-			nouvelleDiv.textContent = etudiant;
+        // Modifie le contenu de la nouvelle div avec le nom de l'étudiant
+        nouvelleDiv.textContent = etudiant;
 
-			// Si c'est mon nom
-			if(etudiant == "NOM Prénom"){
-				// Je modifie ma case. Exemple:
-				nouvelleDiv.classList.add('blue');
-			}
-			else{
-				// Génère une couleur de fond aléatoire
-				const randomBackgroundColor = randomColor();
+        // Si c'est mon nom
+        if (etudiant == "NOM Prénom") {
+            // J'ajoute la classe 'blue' à ma case
+            nouvelleDiv.classList.add('blue');
+        } else {
+            // Génère une couleur de fond aléatoire
+            const randomBackgroundColor = randomColor();
 
-				// Applique la couleur de fond à la nouvelle div
-				nouvelleDiv.style.backgroundColor = randomBackgroundColor;
-			}
+            // Applique la couleur de fond à la nouvelle div
+            nouvelleDiv.style.backgroundColor = randomBackgroundColor;
+        }
 
-			// Ajoute la nouvelle div au DOM (par exemple, à un conteneur)
-			const conteneur = document.getElementById('container'); // Remplacer 'container' par l'ID du conteneur où vous souhaitez ajouter les divs
-			conteneur.appendChild(nouvelleDiv);
-		});
+        // Ajoute la nouvelle div au DOM (par exemple, à un conteneur)
+        const conteneur = document.getElementById('container');
+        conteneur.appendChild(nouvelleDiv);
+    });
 		
 		// Supprime la div modèle
 		divExistante.remove();
